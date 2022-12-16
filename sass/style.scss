@@ -1,0 +1,229 @@
+//Imports
+@import"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap";
+
+//Colors
+:root{
+    --primary-color: #4169E1;
+    --secondary-color: #191970;
+    --bg-color: #f5f5f5;
+    --bg-radical-color: #ffffff;
+    --contrast-color: #292b2c;
+}
+
+//Extends
+.flex-central{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-fullscreen{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+//Common classes
+.theme{
+    background-color: var(--bg-color);
+    color: var(--contrast-color);
+}
+.radical-theme{
+    background-color: var(--bg-radical-color);
+    color: var(--contrast-color);
+}
+a{
+    color: var(--contrast-color) !important;
+    &:hover{
+        color: var(--primary-color) !important;
+    }
+}
+.text-highlight{
+    color: var(--primary-color); 
+}
+
+//Customizing individual elements
+html {
+    scroll-behavior: smooth;
+} 
+:target {
+    scroll-margin-top: 10vh;
+}
+body{
+    background-color: var(--bg-radical-color);
+}
+
+.navbar-toggler{
+    background-image: url("../images/menu.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content{
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    .content-title{
+        color: var(--primary-color);
+    }
+    &:hover{
+        background-color: var(--primary-color);
+        .content-title{
+            color: var(--bg-color);
+        }
+        a{
+            color: var(--bg-color);
+        }
+        p{
+            color: var(--bg-color);
+        }
+    }
+}
+.icon{
+    width: 24px;
+    display: inline-block;
+}
+.icon-theme{
+    width: 80px;
+    display: inline-block;
+}
+
+//Customizing sections
+#home{
+    background-image: url("../images/bg-home-light.webp");
+    @extend .div-fullscreen;
+    @extend .flex-central;
+    .title{
+        font-size: 2rem;
+    }
+    .sub-title{
+        font-size: 1rem;
+    }
+    .btn-light:hover{
+        background-color: var(--primary-color);
+        border-color: var(--contrast-color);
+        transition: 0.2s;
+    }
+}
+
+#about{
+    @extend .flex-central;
+    @extend .div-fullscreen;
+    .about-img{
+        @extend .flex-central;
+        .avatar{
+            border-radius: 100%;
+            max-width: 90%;
+            background: linear-gradient(221deg, #4169e1, #303fa7, #191970);
+            background-size: 600% 600%;
+
+            -webkit-animation: AnimationName 5s ease infinite;
+            -moz-animation: AnimationName 5s ease infinite;
+            animation: AnimationName 5s ease infinite;
+            &:hover{
+                max-width: 100%;
+                border: 3px dashed var(--bg-color);
+                transition: 0.4s;
+            }
+        }
+    }
+    .about-text{
+        .title-hr{
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--secondary-color);
+        }
+        .services{
+            .service-item{
+                .service-icon{
+                    object-fit: contain;
+                    width: 100px;
+                    height: 100px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 5px;
+                    background-color: var(--bg-color);
+                    padding: 20px;
+                    border-radius: 30%;
+                }
+                .service-name{
+                    font-size: 14px;
+                    color: var(--contrast-color);
+                }
+            }
+            .service-item:hover{
+                .service-icon{
+                    width: 110px;
+                    transition: 0.6s;
+                }
+                .service-name{
+                    font-size: 16px;
+                    font-weight: bold;
+                    transition: 0.6s;
+                }
+            }
+        }
+    }
+}
+
+#portfolio{
+    @extend .div-fullscreen;
+    @extend .flex-central;
+    flex-direction: column;
+    .portfolio-item{
+        width: 100%;
+        border-radius: 10px;
+        border: 3px inset gray;
+    }
+    .portfolio-text{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+#contact{
+    .btn-text{
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .icon{
+        margin-left: 5px;
+    }
+}
+
+
+//Animations
+@-webkit-keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+
+//Responsivity
+@media (min-width: 680px){
+    #home{
+        .title{
+            font-size: 4rem;
+        }
+        .sub-title{
+            font-size: 3rem;
+        }
+    }
+    #contact{
+        .btn-text{
+            font-size: 16px;
+        }
+    }
+}
+
